@@ -86,18 +86,58 @@ class LinkedList {
     let currNode = this.head;
 
     while ((currNode.next !== null) && (currNode.next.value !== givenValue)) {
-      if (currNode.next === null) {
-        console.log(`${givenValue} not found, cannot insert ${newValue}.`);
-        return null;
-      }
-
       currNode = currNode.next;
+    }
+    if (currNode.next === null) {
+      console.log(`${givenValue} not found, cannot insert ${newValue}.`);
+      return null;
     }
     let newNode = new _Node(newValue, currNode.next);
     currNode.next = newNode;
   }
 
+  insertAfter(newValue, givenValue) {
+    if (this.head === null)  // If the list is empty
+      return null;
 
+    let currNode = this.head; // Start at the head
+
+    while (currNode !== null && currNode.value !== givenValue) {
+      currNode = currNode.next;
+    }
+    if (currNode === null) {
+      console.log(`${givenValue} not found, cannot insert ${newValue}.`);
+      return;
+    }
+    let newNode = new _Node(newValue, currNode.next);
+    currNode.next = newNode;
+  }
+
+  insertAt(newValue, index) {
+    if (this.head === null)
+      return null;
+
+    let currentIndex = 0;
+    let currNode = this.head;
+    let prevNode = this.head;
+
+    if (index === 0) {
+      this.insertFirst(newValue);
+      return;
+    }
+
+    while (currNode !== null && currentIndex < index) {
+      currentIndex++;
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+    if (currNode === null) {
+      console.log(`index:${index} not found, cannot insert ${newValue}.`);
+      return;
+    }
+    let newNode = new _Node(newValue, currNode);
+    prevNode.next = newNode;
+  }
 
   printList() {
     let currNode = this.head;
