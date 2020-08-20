@@ -5,6 +5,7 @@ class LinkedList {
 
   insertFirst(item) {
     this.head = new _Node(item, this.head);
+    console.log(`added ${item} to beginning of LL`);
   }
 
   insertLast(item) {
@@ -16,6 +17,7 @@ class LinkedList {
       while (tempNode.next !== null) {
         tempNode = tempNode.next;
       }
+      console.log(`added ${item} to end of LL`);
     }
   }
 
@@ -24,6 +26,7 @@ class LinkedList {
     let currNode = this.head;
     // if the list is empty
     if (!this.head) {
+      console.log(`list is empty cannot add ${item}`);
       return null;
     }
     // check for the item
@@ -31,6 +34,7 @@ class LinkedList {
       /* Return null if it's the end of the list 
                and the item is not on the list */
       if (currNode.next === null) {
+        console.log(`${item} not found in list`);
         return null;
       }
       else {
@@ -39,17 +43,20 @@ class LinkedList {
       }
     }
     // Found it
+    console.log(`found ${item}`);
     return currNode;
   }
 
   remove(item) {
     // If the list is empty
     if (!this.head) {
+      console.log(`list is empty can't find ${item}`);
       return null;
     }
     // If the node to be removed is head, make the next node head
     if (this.head.value === item) {
       this.head = this.head.next;
+      console.log(`removed ${item} (which was the head)`);
       return;
     }
     // Start at the head
@@ -63,10 +70,15 @@ class LinkedList {
       currNode = currNode.next;
     }
     if (currNode === null) {
-      console.log('Item not found');
+      console.log(`${item} not found in list`);
       return;
     }
+    console.log(`${item} removed`);
     previousNode.next = currNode.next;
+  }
+
+  insertBefore() {
+
   }
 }
 

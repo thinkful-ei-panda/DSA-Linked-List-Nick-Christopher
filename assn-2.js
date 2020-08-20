@@ -15,5 +15,10 @@ function main() {
   for (const i in items)
     SSL.insertFirst(items[i]);
 
-  console.log(SSL);
+  SSL.insertFirst('Tauhida');
+
+  SSL.remove('squirrel');
+
 }
+
+main();
