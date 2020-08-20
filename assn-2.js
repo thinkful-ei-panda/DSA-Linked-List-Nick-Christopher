@@ -19,8 +19,9 @@ function main() {
 
   SSL.remove('squirrel');
 
-  console.log('the head is:', SSL.head);
+  SSL.insertBefore('test', 'Apollo');
 
+  SSL.printList();
 }
 
 main();
