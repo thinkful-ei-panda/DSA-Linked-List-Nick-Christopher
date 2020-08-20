@@ -13,11 +13,13 @@ function main() {
   ];
 
   for (const i in items)
-    SSL.insertFirst(items[i]);
+    SSL.insertLast(items[i]);
 
-  SSL.insertFirst('Tauhida');
+  SSL.insertLast('Tauhida');
 
   SSL.remove('squirrel');
+
+  console.log('the head is:', SSL.head);
 
 }
 

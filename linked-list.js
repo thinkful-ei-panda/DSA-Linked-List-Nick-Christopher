@@ -77,7 +77,19 @@ class LinkedList {
     previousNode.next = currNode.next;
   }
 
-  insertBefore() {
+  insertBefore(newNode, givenNode) {
+    // If the list is empty
+    if (this.head === null) {
+      console.log(`list is empty adding ${newNode} to beginning`);
+      return null;
+    }
+
+    if (this.head === givenNode) {
+      console.log(`adding ${newNode} before ${givenNode} and setting ${newNode} to head`);
+      this.insertFirst(newNode.value);
+    }
+
+
 
   }
 }
