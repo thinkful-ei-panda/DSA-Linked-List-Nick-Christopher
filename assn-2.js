@@ -15,11 +15,11 @@ function main() {
   for (const i in items)
     SSL.insertLast(items[i]);
 
-  SSL.insertLast('Tauhida');
+  // SSL.insertLast('Tauhida');
+  // SSL.remove('squirrel');
+  // SSL.insertBefore('test', 'Starbuck');
 
-  SSL.remove('squirrel');
 
-  SSL.insertBefore('test', 'Apollo');
 
   SSL.printList();
 }

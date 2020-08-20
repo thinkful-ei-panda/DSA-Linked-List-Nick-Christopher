@@ -77,25 +77,33 @@ class LinkedList {
     }
 
     if (this.head.value === givenValue) {
-      this.insertFirst(newValue);
+      let newNode = new _Node(newValue, this.head);
+      this.head = newNode;
+      return;
     }
 
     // Start at the head
     let currNode = this.head;
 
-    while ((currNode !== null) && currNode.value !== newValue) {
+    while ((currNode.next !== null) && (currNode.next.value !== givenValue)) {
+      if (currNode.next === null) {
+        console.log(`${givenValue} not found, cannot insert ${newValue}.`);
+        return null;
+      }
+
       currNode = currNode.next;
     }
-
     let newNode = new _Node(newValue, currNode.next);
     currNode.next = newNode;
   }
+
+
 
   printList() {
     let currNode = this.head;
 
     while (currNode !== null) {
-      console.log(`current node: ${currNode.value}`);
+      console.log(`${currNode.value}`);
       currNode = currNode.next;
     }
   }
