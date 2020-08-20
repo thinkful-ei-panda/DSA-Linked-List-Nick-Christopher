@@ -76,3 +76,5 @@ class _Node {
     this.next = next;
   }
 }
+
+export default LinkedList;
